@@ -1,0 +1,49 @@
+/* How It Works Section Styles */
+.how-it-works {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.how-it-works-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #111318;
+}
+
+.dark .how-it-works-title {
+  color: #ffffff;
+}
+
+.how-it-works-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.how-it-works-cta-container {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.how-it-works-cta {
+  background-color: #2424eb;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.how-it-works-cta:hover {
+  background-color: rgba(36, 36, 235, 0.9);
+}

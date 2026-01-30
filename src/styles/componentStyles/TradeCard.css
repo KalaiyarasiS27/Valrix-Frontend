@@ -1,0 +1,60 @@
+/* Trade Card Styles */
+.trade-card {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+}
+
+.trade-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.trade-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.trade-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.trade-card:hover .trade-card-title {
+  color: #2424eb;
+}
+
+.trade-card-status {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.dark .trade-card-status {
+  color: #9ca3af;
+}
+
+.trade-card-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.875rem;
+}
+
+.dark .trade-card-location {
+  color: #9ca3af;
+}
+
+.trade-card-location .material-symbols-outlined {
+  font-size: 0.875rem;
+}

@@ -1,0 +1,13 @@
+/* Home Page Styles */
+.home-page {
+  background-color: #f6f6f8;
+  color: #1a1a1a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: colors 0.2s;
+  min-height: 100vh;
+}
+
+.dark .home-page {
+  background-color: #101622;
+  color: #f3f4f6;
+}

@@ -1,0 +1,114 @@
+/* Hero Section Styles */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 6rem 1.5rem;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+  }
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #2424eb;
+}
+
+.dark .hero-title {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.hero-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.dark .hero-description {
+  color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+.hero-cta-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-cta {
+  background-color: #2424eb;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-cta:hover {
+  background-color: rgba(36, 36, 235, 0.9);
+}
+
+.hero-image-container {
+  flex: 1;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.75rem;
+  filter: grayscale(20%);
+  transition: all 0.5s;
+}
+
+.hero-image:hover {
+  filter: grayscale(0%);
+}

@@ -1,0 +1,46 @@
+/* Step Component Styles */
+.step-container {
+  display: flex;
+  gap: 2rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid #2424eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2424eb;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #111318;
+}
+
+.dark .step-title {
+  color: #ffffff;
+}
+
+.step-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #4b5563;
+  line-height: 1.75;
+}
+
+.dark .step-description {
+  color: #9ca3af;
+}
