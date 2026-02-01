@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import HowItWorks from '../components/HowItWorks';
 import Footer from '../components/Footer';
-import './Home.css';
+import '../styles/pageStyles/Home.css';
 
 const Home = () => {
   return (

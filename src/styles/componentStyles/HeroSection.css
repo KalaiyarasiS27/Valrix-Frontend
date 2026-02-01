@@ -2,8 +2,20 @@
 .hero-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 2rem 1rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@media (min-width: 480px) {
+  .hero-section {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -35,7 +47,7 @@
 
 .hero-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.025em;
@@ -46,6 +58,18 @@
   color: #ffffff;
 }
 
+@media (min-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-title {
     font-size: 3.75rem;
@@ -54,7 +78,7 @@
 
 .hero-description {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75;
   font-weight: 400;
   color: #4b5563;
@@ -62,6 +86,18 @@
 
 .dark .hero-description {
   color: #9ca3af;
+}
+
+@media (min-width: 480px) {
+  .hero-description {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 768px) {

@@ -43,6 +43,16 @@
 .footer-links {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .footer-link {
@@ -61,4 +71,11 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.875rem;
   color: #9ca3af;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .footer-copyright {
+    font-size: 0.8125rem;
+  }
 }

@@ -25,9 +25,9 @@ const Header = () => {
           <h1 className="header-logo-text">Valrix</h1>
         </div>
         <nav className="header-nav">
-          <a className="header-link" href="#">
+          <Link className="header-link" to="/login">
             Sign in
-          </a>
+          </Link>
           <Link
             to="/signup"
             className="header-cta"

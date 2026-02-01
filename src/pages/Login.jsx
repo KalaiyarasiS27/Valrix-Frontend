@@ -1,24 +1,24 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { authAPI } from '../config/api';
-import '../styles/pageStyles/SignUp.css';
+import '../styles/pageStyles/Login.css';
 
-const Signup = () => {
-  const [showPassword, setShowPassword] = useState(true);
+const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
+    rememberMe: false,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
     setError('');
   };
@@ -28,18 +28,8 @@ const Signup = () => {
     setError('');
     setLoading(true);
 
-    if (formData.password.length < 8) {
-      setError('Password must be at least 8 characters long.');
-      setLoading(false);
-      return;
-    }
-
     try {
-      const response = await authAPI.register(
-        formData.name,
-        formData.email,
-        formData.password
-      );
+      const response = await authAPI.login(formData.email, formData.password);
       
       // Store token in localStorage
       if (response.token) {
@@ -50,17 +40,19 @@ const Signup = () => {
       if (response.user) {
         localStorage.setItem('user', JSON.stringify(response.user));
       }
-      navigate('/');
+
+      // Redirect to home page
+      navigate('/profile');
     } catch (err) {
-      setError(err.message || 'Sign up failed. Please try again.');
+      setError(err.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-form-section">
+    <div className="login-container">
+      <div className="login-form-section">
         <div className="form-header">
           <div className="logo">
             <svg className="logo-icon" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -72,11 +64,12 @@ const Signup = () => {
 
         <div className="form-content">
           <div className="form-intro">
-            <h2 className="form-title">Join the Loop.</h2>
-            <p className="form-subtitle">Exchange without money. Build value together.</p>
+            <span className="badge">WELCOME BACK</span>
+            <h2 className="form-title">Log in to your account.</h2>
+            <p className="form-subtitle">Continue trading and building community.</p>
           </div>
 
-          <form className="signup-form" onSubmit={handleSubmit}>
+          <form className="login-form" onSubmit={handleSubmit}>
             {error && (
               <div className="error-message">
                 <span className="material-symbols-outlined">error</span>
@@ -84,20 +77,6 @@ const Signup = () => {
               </div>
             )}
             
-            <div className="form-group">
-              <label className="form-label">Full name</label>
-              <input 
-                className="form-input" 
-                placeholder="Enter your full name" 
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                disabled={loading}
-              />
-            </div>
-
             <div className="form-group">
               <label className="form-label">Email</label>
               <input 
@@ -117,13 +96,12 @@ const Signup = () => {
               <div className="password-wrapper">
                 <input 
                   className="form-input" 
-                  placeholder="Create a password" 
+                  placeholder="Enter your password" 
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  minLength="8"
                   disabled={loading}
                 />
                 <button 
@@ -137,28 +115,41 @@ const Signup = () => {
                   </span>
                 </button>
               </div>
-              <p className="helper-text">Use at least 8 characters.</p>
+            </div>
+
+            <div className="form-options">
+              <label className="remember-me">
+                <input 
+                  type="checkbox" 
+                  name="rememberMe"
+                  checked={formData.rememberMe}
+                  onChange={handleChange}
+                  disabled={loading}
+                />
+                <span>Remember me</span>
+              </label>
+              <a href="#" className="forgot-password">Forgot password?</a>
             </div>
 
             <button className="submit-button" type="submit" disabled={loading}>
               {loading ? (
                 <>
-                  <span>Joining...</span>
+                  <span>Logging in...</span>
                   <span className="material-symbols-outlined spinner">progress_activity</span>
                 </>
               ) : (
                 <>
-                  <span>Join the Loop</span>
+                  <span>Log in</span>
                   <span className="material-symbols-outlined">arrow_forward</span>
                 </>
               )}
             </button>
           </form>
 
-          <div className="login-link">
+          <div className="signup-link">
             <p>
-              Already in the loop?{' '}
-              <Link to="/login">Log in</Link>
+              New to Valrix?{' '}
+              <Link to="/signup">Join the loop</Link>
             </p>
           </div>
         </div>
@@ -175,7 +166,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <div className="signup-illustration-section">
+      <div className="login-illustration-section">
         <div className="illustration-content">
           <div className="circle-illustration">
             <div className="circle-border"></div>
@@ -198,9 +189,9 @@ const Signup = () => {
             </div>
           </div>
 
-          <h3 className="illustration-title">Trade goods. Build community.</h3>
+          <h3 className="illustration-title">Welcome back to the loop.</h3>
           <p className="illustration-subtitle">
-            Offer what you have, find what you need, and earn credits when trades don't align.
+            Continue exchanging goods, building connections, and strengthening your community.
           </p>
         </div>
       </div>
@@ -208,6 +199,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
-
-
+export default Login;
